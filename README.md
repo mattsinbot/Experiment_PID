@@ -5,7 +5,7 @@ In this page, I will post results that I found while designing a PID controller 
 ![alt](./images/control/basic_setup.png)
 
 The circuit diagram of the above physical circuit is as below.
-![alt](./images/control/circuit_diagram.png)
+![alt](./images/control/experiment_1/circuit_diagram.png)
 
 The turntable is controlled by a DC motor with a tachometer. The DC motor rotates at 1000 RPM when connected to a 12V input signal with no-load condition. On the other hand, motor's speed is measured through the tachometer which produces 0.52V signal for 1000 RPM shaft speed. Therefore, the tachometer output voltage needs to be amplified with a gain ratio of 12V/0.52V to infer the actual input voltage to the DC motor. This has precisely been implemented in the feedback loop amplifier.
 
