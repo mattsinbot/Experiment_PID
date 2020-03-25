@@ -2,20 +2,20 @@
 Implementation and experimental analysis of PID controller, to control a turntable.
 
 In this page, I will post results that I found while designing a PID controller for a single-input-single-out (SISO) dynamic system. Basically the objective of this experiment was to implementing an analog circuit to communicate a turntable and controlling its speed through a digitally implemented PID controller. The interface between the digital controller and analog circuit is made through a **data acquisition system** (DAQ) from *Texas Instruments*. You can see the setup of the experiment below.
-![alt]({{ site.url }}{{ site.baseurl }}/images/control/basic_setup.png)
+![alt](./images/control/basic_setup.png)
 
 The circuit diagram of the above physical circuit is as below.
-![alt]({{ site.url }}{{ site.baseurl }}/images/control/circuit_diagram.png)
+![alt](./images/control/circuit_diagram.png)
 
 The turntable is controlled by a DC motor with a tachometer. The DC motor rotates at 1000 RPM when connected to a 12V input signal with no-load condition. On the other hand, motor's speed is measured through the tachometer which produces 0.52V signal for 1000 RPM shaft speed. Therefore, the tachometer output voltage needs to be amplified with a gain ratio of 12V/0.52V to infer the actual input voltage to the DC motor. This has precisely been implemented in the feedback loop amplifier.
 
 In order to achieve the gain=12V/0.52V in the feedback loop, we need to set the resistance of the potentiometer
 to 23.3K-Ohm. We calculated the potentiometer resistance value by following the working principle of non-inverting operational-amplifier (Op-Amp) as shown in the figure below.
-![alt]({{ site.url }}{{ site.baseurl }}/images/control/noninverting_opamp.png)
+![alt](./images/control/noninverting_opamp.png)
 
 ## Deriving Transfer Function of The system
 In order to perform theoretical analysis, we need to derive transfer function (TF) of the system. To derive the TF of the whole system, we need to first have the block diagram of the system incorporating the feedback PID loop. The figure below show the block diagram of the whole system with specified blocks representing relevant components.
-![alt]({{ site.url }}{{ site.baseurl }}/images/control/pid_block_diagram.png)
+![alt](./images/control/pid_block_diagram.png)
 Following the block diagram, we write
 
 $$\left(V(s) - K_t\omega(s)\right)G(s)G_c(s) = \omega(s)$$
@@ -87,4 +87,4 @@ plt.legend(loc="best")
 plt.show()
 ```
 After running the above script in python, we can visualize the data as in the figure below.
-![alt]({{ site.url }}{{ site.baseurl }}/images/control/visualize_recorded_data2.png)
+![alt](./images/control/visualize_recorded_data2.png)
